@@ -5,11 +5,11 @@ import json
 import os
 from playwright.async_api import async_playwright
 
-# ==================== CONFIGURATION ====================
+
 EMOJI_POOL = ["🔥", "⚡", "💯", "😎", "👾", "✨", "🚀"]
 TARGET_NAMES = ["rein", "ireach"]
 TRACKER_FILE = "last_run.txt"
-# =======================================================
+
 
 def already_ran_today():
     """Checks if the script has already run successfully today."""
@@ -36,7 +36,7 @@ async def send_streak_to_friend(page, name):
         name_element = page.get_by_text(name, exact=True).first
         
         if await name_element.count() > 0 and await name_element.is_visible():
-            print(f"🎯 Found element for '{name}'! Clicking directly...")
+            print(f" Found element for '{name}'! Clicking directly...")
             await name_element.click(force=True)
             await asyncio.sleep(3.0)
             
@@ -51,20 +51,20 @@ async def send_streak_to_friend(page, name):
             await asyncio.sleep(1.0)
             await page.keyboard.press("Enter")
             
-            print(f"✅ Streak sent to {name}: {chosen_emojis}")
+            print(f" Streak sent to {name}: {chosen_emojis}")
             return True # Success
         else:
-            print(f"❌ Could not find a chat element matching '{name}' on screen.")
+            print(f" Could not find a chat element matching '{name}' on screen.")
             return False
             
     except Exception as e:
-        print(f"⚠️ Error running tasks for {name}: {e}")
+        print(f" Error running tasks for {name}: {e}")
         return False
 
 async def main():
-    # 🛡️ THE GATEKEEPER: Instantly exit if already done today
+#this makes it that it only runs once a day
     if already_ran_today():
-        print(f"\n🛑 Streaks were already sent today! Exiting to prevent duplicate run.")
+        print(f"\n Streaks were already sent today! Exiting to prevent duplicate run.")
         return
 
     if not os.path.exists("cookies.json"):
@@ -99,12 +99,11 @@ async def main():
                 overall_success = False
             await asyncio.sleep(random.uniform(3.0, 6.0))
             
-        print("\n--- ALL STREAKS SENT ---")
-        
-        # Only lock out the day if it actually managed to send them
+        print("\n--- STREAKS SENT ---")
+    
         if overall_success:
             mark_as_ran_today()
-            print("📝 Success logged. The script won't run again until tomorrow.")
+            print(" Success logged. The script won't run again until tomorrow.")
         
         await asyncio.sleep(3.0)
         await browser.close()
