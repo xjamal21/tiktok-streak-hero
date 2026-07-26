@@ -8,13 +8,13 @@
 
 
 #### How to Export Your Cookies:
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. **Log in to TikTok** in your web browser (Chrome, Firefox, or Edge).
 2. Install a trusted cookie exporter extension, such as **Get cookies.txt LOCALLY** or **Cookie-Editor**.
 3. Open the extension while on `tiktok.com` and export your cookies in **JSON** format.
 4. Rename the exported file to **`cookies.json`**.
 5. Move `cookies.json` into the main folder of this project (the same folder where `local_streak.py` is located).
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #### Setup Instructions for automation:
 1.Press Win + R, type taskschd.msc, and press Enter.
