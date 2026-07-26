@@ -36,5 +36,7 @@
 
 #### MAKE SURE YOUR FOLDERS ARE MATCHED IN THE RUN_BOT.BAT FILE DO NOT JUST SIMPLY COPY MINE, ITS JUST AN EXAMPLE.
 
+This is what it looks like in the terminal when running the script.
+<img width="643" height="367" alt="image" src="https://github.com/user-attachments/assets/1ca1814e-b6af-44a2-864a-99d817d40cfb" />
 
 
